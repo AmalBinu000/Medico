@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --secondary: #10b981;
+  --accent: #8b5cf6;
+  --background: #f9fafb;
+  --text: #1f2937;
+}
+
+body {
+  @apply text-gray-800;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-semibold;
+}
+
+.appointment-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.appointment-cell {
+  @apply h-24 sm:h-32 border border-gray-200 p-1 transition-colors overflow-hidden relative;
+}
+
+.appointment-cell:hover {
+  @apply bg-blue-50;
+}
+
+.appointment-cell.today {
+  @apply bg-blue-50 border-blue-300;
+}
+
+.appointment-cell.different-month {
+  @apply bg-gray-100 text-gray-400;
+}
+
+.appointment-badge {
+  @apply text-xs px-2 py-1 rounded-full text-white mb-1 truncate;
+}
+
+/* Toast animations */
+@keyframes slideIn {
+  0% { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.toast-enter {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes slideOut {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+.toast-exit {
+  animation: slideOut 0.3s ease-out forwards;
+}
